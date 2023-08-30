@@ -50,9 +50,14 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'std_id' => ['required', 'numeric', 'unique:users'],
+            'password' => ['required', 'numeric'],
+            'std_fristename' => ['required', 'string', 'max:255'],
+            'std_lastna' => ['required', 'string', 'max:255'],
+            'std_major' => ['required', 'string', 'max:255'],
+            'std_typesubject' => ['required', 'string', 'max:255'],
+            'std_year' => ['required', 'string', 'max:255'],
+            'college' => ['required', 'string', 'max:255'],
         ]);
     }
 
@@ -65,9 +70,14 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+            'std_id' => $data['std_id'],
             'password' => Hash::make($data['password']),
+            'std_fristename' => $data['std_fristename'],
+            'std_lastna' => $data['std_lastna'],
+            'std_major' => $data['std_major'],
+            'std_typesubject' => $data['std_typesubject'],
+            'std_year' => $data['std_year'],
+            'college' => $data['college'],
         ]);
     }
 }
