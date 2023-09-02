@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    @include('layouts.title')
 
     <!-- Custom fonts for this template-->
     <link href="{{ URL::asset('/assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -29,10 +29,13 @@
             <div id="content">
                 @include('layouts.nav')
                 @yield('content')
-                @include('layouts.footer')
+
             </div>
 
+
+            @include('layouts.footer')
         </div>
+
     </div>
     <!-- Bootstrap core JavaScript-->
     <script src="{{ URL::asset('/assets/vendor/jquery/jquery.min.js') }}"></script>

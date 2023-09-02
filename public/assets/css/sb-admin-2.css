@@ -10997,7 +10997,7 @@ a:focus {
 }
 
 #wrapper #content-wrapper #content {
-  flex: 1 0 auto;
+  flex: 0 auto;
 }
 
 .container,
@@ -11652,7 +11652,7 @@ a:focus {
 }
 
 .sidebar .sidebar-brand {
-  height: 4.375rem;
+  height: 6rem;
   text-decoration: none;
   font-size: 1rem;
   font-weight: 800;
@@ -11661,6 +11661,9 @@ a:focus {
   text-transform: uppercase;
   letter-spacing: 0.05rem;
   z-index: 1;
+  /*   background-image: url('../../assets/img/WN2sRsjt.jpeg');
+  background-size: cover;
+  background-position: center; */
 }
 
 .sidebar .sidebar-brand .sidebar-brand-icon i {
@@ -12615,4 +12618,19 @@ body.sidebar-toggled footer.sticky-footer {
   background-color: #f8f9fc;
   width: 100%;
   overflow-x: clip !important;
+}
+
+.icon-sb {
+  font-size: 24px !important;
+}
+
+.span-l {
+  margin-left: 16px;
+}
+
+.icon-logo {
+  width: 100%;
+  height: 100%;
+  max-width: 20px;
+  max-height: 20px;
 }
