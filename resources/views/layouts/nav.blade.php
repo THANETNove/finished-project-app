@@ -17,10 +17,12 @@
             </div>
         </div>
     </form> --}}
+    @if (session('message'))
+        <p class="text-primary">{{ session('message') }}</p>
+    @endif
 
     <!-- Topbar Navbar -->
     <ul class="navbar-nav ml-auto">
-
 
 
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class ProfileController extends Controller
 {
@@ -46,7 +47,8 @@ class ProfileController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $user = User::find($id);
+        return view('profile.edit', compact('user'));
     }
 
     /**
@@ -54,7 +56,26 @@ class ProfileController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validated = $request->validate([
+            'std_fristename' => ['required', 'string', 'max:255'],
+            'std_lastna' => ['required', 'string', 'max:255'],
+            'std_major' => ['required', 'string', 'max:255'],
+            'std_typesubject' => ['required', 'string', 'max:255'],
+            'std_year' => ['required', 'string', 'max:255'],
+            'college' => ['required', 'string', 'max:255'],
+        ]);
+
+        DB::table('users')->where('id', $id)
+            ->update([
+                'std_fristename' => $request['std_fristename'],
+                'std_lastna' => $request['std_lastna'],
+                'std_major' => $request['std_major'],
+                'std_typesubject' => $request['std_typesubject'],
+                'std_year' => $request['std_year'],
+                'college' => $request['college']
+            ]);
+
+        return redirect('profile')->with('message', "เเก้ไขสำเร็จ");
     }
 
     /**

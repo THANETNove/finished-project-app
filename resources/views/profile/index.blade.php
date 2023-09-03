@@ -45,7 +45,7 @@
                                     </table>
                                 </div>
                                 <div class="card-footer text-right">
-                                    <a href="#" class="btn btn-primary">
+                                    <a href="{{ url('/edit-profile', $user->id) }}" class="btn btn-primary">
                                         แก้ไข
                                     </a>
                                 </div>
