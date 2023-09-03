@@ -12655,3 +12655,80 @@ body.sidebar-toggled footer.sticky-footer {
   margin-left: 30%;
   margin-bottom: 32px;
 }
+
+/* ขนาดหน้าจอเล็ก (เช่น มือถือ) */
+@media (max-width: 767px) {
+  .data-grid {
+    grid-template-columns: 1fr;
+    padding: 32px;
+    /* แสดงข้อมูลเป็นคอลัมน์เดียวเมื่อหน้าจอเล็ก */
+  }
+
+  .data-row {
+    display: grid;
+    grid-template-columns: 100px auto;
+    /* กำหนดความกว้างของคอลัมน์ */
+    align-items: center;
+    margin-bottom: 16px;
+    /* จัดข้อมูลในแนวตั้งกลาง */
+  }
+}
+
+/* ขนาดหน้าจอกลาง (เช่น แท็บเล็ต) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .data-grid {
+    grid-template-columns: 1fr 1fr;
+    padding: 32px;
+  }
+
+  .data-row {
+    display: grid;
+    grid-template-columns: 150px auto;
+    /* กำหนดความกว้างของคอลัมน์ */
+    align-items: center;
+    margin-bottom: 16px;
+    /* จัดข้อมูลในแนวตั้งกลาง */
+  }
+
+  /* แสดงข้อมูลเป็น 2 คอลัมน์เมื่อหน้าจอกลาง */
+}
+
+
+
+/* ขนาดหน้าจอใหญ่ (เช่น หน้าจอคอมพิวเตอร์) */
+@media (min-width: 992px) {
+  .data-grid {
+    grid-template-columns: 200px 1fr;
+    padding: 32px;
+
+    /* คอลัมน์แรกกว้าง 200px, คอลัมน์ที่สองเป็นส่วนที่เหลือ */
+  }
+
+  .data-row {
+    display: grid;
+    grid-template-columns: 150px auto;
+    /* กำหนดความกว้างของคอลัมน์ */
+    align-items: center;
+    margin-bottom: 16px;
+    /* จัดข้อมูลในแนวตั้งกลาง */
+  }
+}
+
+
+
+
+.data-label {
+  font-weight: bold;
+  color: #000;
+  /* ตัวหนาของป้ายชื่อ */
+}
+
+.edit-performance {
+  position: absolute;
+  margin-top: 32px;
+  right: 0;
+  cursor: pointer;
+  margin-right: 16px;
+  font-weight: bold;
+  color: var(--blue);
+}

@@ -28,3 +28,5 @@ Route::get('/edit-profile/{id}', [ProfileController::class, 'edit'])->name('edit
 Route::put('/update-profile/{id}', [ProfileController::class, 'update'])->name('update-profile');
 Route::get('/create-performance', [PerformanceController::class, 'create'])->name('create-performance');
 Route::post('/new-performance', [PerformanceController::class, 'store'])->name('new-performance');
+Route::get('/edit-performance/{id}', [PerformanceController::class, 'edit'])->name('edit-performance');
+Route::put('/update-performance/{id}', [PerformanceController::class, 'update'])->name('update-performance');

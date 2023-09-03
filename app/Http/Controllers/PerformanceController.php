@@ -52,8 +52,7 @@ class PerformanceController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $data =   $image->move(public_path() . '/assets/img/image_performance', Auth::user()->std_id .  "-unit5-" . $dateText . $image->getClientOriginalName());
-            $data_imageName = Auth::user()->std_id .  "-unit5-" . $dateText . $image->getClientOriginalName();
-            $imageName =  json_encode($data_imageName);
+            $imageName = Auth::user()->std_id .  "-unit5-" . $dateText . $image->getClientOriginalName();
         }
 
         // pdf บทที่ 1
@@ -134,7 +133,8 @@ class PerformanceController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = Performance::find($id);
+        return view('performance.edit', compact('data'));
     }
 
     /**
@@ -142,7 +142,110 @@ class PerformanceController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validated = $request->validate([
+            'image' => ['image', 'mimes:jpg,png,jpeg,webp'],
+            'std_class' => ['numeric'],
+            'unit1' => ['file', 'mimes:pdf'],
+            'unit2' => ['file', 'mimes:pdf'],
+            'unit3' => ['file', 'mimes:pdf'],
+            'unit4' => ['file', 'mimes:pdf'],
+            'unit5' => ['file', 'mimes:pdf'],
+            'unit6' => ['file', 'mimes:pdf'],
+            'project_all' => ['file', 'mimes:pdf'],
+        ]);
+
+        $dateText = Str::random(6);
+        $member =  Performance::find($id);
+
+
+        // image
+        if ($request->hasFile('image')) {
+            $image_path = public_path() . '/assets/img/image_performance/' . $member->image;
+            unlink($image_path);
+
+
+            $image = $request->file('image');
+            $data =   $image->move(public_path() . '/assets/img/image_performance', Auth::user()->std_id .  "-unit5-" . $dateText . $image->getClientOriginalName());
+            $imageName = Auth::user()->std_id .  "-unit5-" . $dateText . $image->getClientOriginalName();
+            $member->image =  $imageName;
+        }
+
+        // pdf บทที่ 1
+        if ($request->hasFile('unit1')) {
+            $file_path = public_path() . '/assets/img/file_pdf/' . $member->unit1;
+            unlink($file_path);
+
+            $image = $request->file('unit1');
+            $data =   $image->move(public_path() . '/assets/img/file_pdf', Auth::user()->std_id .  "-unit1-" . $dateText . $image->getClientOriginalName());
+            $unit1_name = Auth::user()->std_id .  "-unit1-" . $dateText . $image->getClientOriginalName();
+            $member->unit1 = $unit1_name;
+        }
+        // pdf บทที่ 2
+        if ($request->hasFile('unit2')) {
+            $file_path = public_path() . '/assets/img/file_pdf/' . $member->unit2;
+            unlink($file_path);
+
+            $image = $request->file('unit2');
+            $data =   $image->move(public_path() . '/assets/img/file_pdf', Auth::user()->std_id .  "-unit2-" . $dateText . $image->getClientOriginalName());
+            $unit2_name = Auth::user()->std_id .  "-unit2-" . $dateText . $image->getClientOriginalName();
+            $member->unit2 = $unit2_name;
+        }
+        // pdf บทที่ 3
+        if ($request->hasFile('unit3')) {
+            $file_path = public_path() . '/assets/img/file_pdf/' . $member->unit3;
+            unlink($file_path);
+            $image = $request->file('unit3');
+            $data =   $image->move(public_path() . '/assets/img/file_pdf', Auth::user()->std_id .  "-unit3-" . $dateText . $image->getClientOriginalName());
+            $unit3_name = Auth::user()->std_id .  "-unit3-" . $dateText . $image->getClientOriginalName();
+            $member->unit3 = $unit3_name;
+        }
+        // pdf บทที่ 4
+        if ($request->hasFile('unit4')) {
+            $file_path = public_path() . '/assets/img/file_pdf/' . $member->unit4;
+            unlink($file_path);
+            $image = $request->file('unit4');
+            $data =   $image->move(public_path() . '/assets/img/file_pdf', Auth::user()->std_id .  "-unit4-" . $dateText . $image->getClientOriginalName());
+            $unit4_name = Auth::user()->std_id .  "-unit4-" . $dateText . $image->getClientOriginalName();
+            $member->unit4 = $unit4_name;
+        }
+
+        // pdf บทที่ 5
+        if ($request->hasFile('unit5')) {
+            $file_path = public_path() . '/assets/img/file_pdf/' . $member->unit5;
+            unlink($file_path);
+            $image = $request->file('unit5');
+            $data =   $image->move(public_path() . '/assets/img/file_pdf', Auth::user()->std_id .  "-unit5-" . $dateText . $image->getClientOriginalName());
+            $unit5_name = Auth::user()->std_id .  "-unit5-" . $dateText . $image->getClientOriginalName();
+            $member->unit5 = $unit5_name;
+        }
+        // pdf บทที่ 6
+        if ($request->hasFile('unit6')) {
+            $file_path = public_path() . '/assets/img/file_pdf/' . $member->unit6;
+            unlink($file_path);
+            $image = $request->file('unit6');
+            $data =   $image->move(public_path() . '/assets/img/file_pdf', Auth::user()->std_id .  "-unit6-" . $dateText . $image->getClientOriginalName());
+            $unit6_name = Auth::user()->std_id .  "-unit6-" . $dateText . $image->getClientOriginalName();
+            $member->unit6 = $unit6_name;
+        }
+
+        // pdf All 
+
+        if ($request->hasFile('project_all')) {
+            $file_path = public_path() . '/assets/img/file_pdf/' . $member->project_all;
+            unlink($file_path);
+            $image = $request->file('project_all');
+            $data =   $image->move(public_path() . '/assets/img/file_pdf', Auth::user()->std_id .  "-All-" . $dateText . $image->getClientOriginalName());
+            $project_all_name = Auth::user()->std_id .  "-All-" . $dateText . $image->getClientOriginalName();
+            $member->project_all = $project_all_name;
+        }
+
+
+        $member->std_class = $request['std_class'];
+        $member->project_name = $request['project_name'];
+        $member->project_into = $request['project_into'];
+
+        $member->save();
+        return redirect('home')->with('message', "เเก้ไขสำเร็จ");
     }
 
     /**

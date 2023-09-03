@@ -3,8 +3,6 @@
 @section('content')
     <div class="container-fluid">
 
-
-        {{ $data }}
         @if ($data->count() < 1)
             <div class="row">
                 <div class="col-xl-3 col-md-6 mb-4">
@@ -25,63 +23,111 @@
                 </div>
             </div>
         @endif
-        <div class="row">
-            <div class="col-xl-3 col-md-6 mb-4">
-                <a href="{{ url('/create-performance') }}">
-                    <div class="card border-left-success shadow h-100 py-2">
-                        <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                                <div class="col mr-2">
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">เพิ่มโปรเจคจบ</div>
-                                </div>
-                                <div class="col-auto">
-                                    <i class="fa-solid fa-plus fa-2x text-gray-300"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
+
 
         @if ($data->count() > 0)
             <div class="row">
                 <div class="col-xl-12 col-lg-12">
+
                     <div class="card">
-                        {{--  <div class="table-responsive">
-                            <table class="table">
-                                <tbody>
-                                    <tr>
-                                        <td>ชื่อ-นามสกุล:</td>
-                                        <td>
-                                            <span class="span-l">{{ $data->std_fristename }}</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>รหัสนักศึกษา:</td>
-                                        <td><span class="span-l">{{ $user->std_id }}</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>สาขาวิชา:</td>
-                                        <td><span class="span-l">{{ $user->std_major }}</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>ประเภทวิชา:</td>
-                                        <td><span class="span-l">{{ $user->std_typesubject }}</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>ปีการศึกษา:</td>
-                                        <td><span class="span-l">{{ $user->std_year }}</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>วิทยาลัย:</td>
-                                        <td><span class="span-l">{{ $user->college }}</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <a class="edit-performance" href="{{ url('/edit-performance', $data[0]->id) }}">เเก้ไข</a>
+                        <div class="data-grid">
+                            <div class="data-row">
+                                <div class="data-label">รูปภาพ:</div>
+                                <div class="data-value">
+                                    <img src="{{ URL::asset('/assets/img/image_performance/' . $data[0]->image) }}"
+                                        alt="...">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="data-row">
+                                <div class="data-label">ระดับชั้น:</div>
+                                <div class="data-value">{{ $data[0]->std_class }}</div>
+                            </div>
+                            <div class="data-row">
+                                <div class="data-label">ชื่อโครงการ:</div>
+                                <div class="data-value">{{ $data[0]->project_name }}</div>
+                            </div>
+                            <div class="data-row">
+                                <div class="data-label">บทคัดย่อ:</div>
+                                <div class="data-value">{{ $data[0]->project_into }}</div>
+                            </div>
+                            <br>
+                            <div class="data-row">
+                                <div class="data-label">บทที่1:</div>
+                                <div class="data-value">
+                                    <a href="{{ URL::asset('/assets/img/file_pdf/' . $data[0]->unit1) }}"
+                                        target="_blank">ดูไฟล์
+                                        PDF</a>&nbsp; &nbsp;&nbsp;
+                                    <a href="{{ URL::asset('/assets/img/file_pdf/' . $data[0]->unit1) }}" target="_blank"
+                                        download>ดาวน์โหลดไฟล์ PDF</a>
+                                </div>
+                            </div>
+                            <div class="data-row">
+                                <div class="data-label">บทที่2:</div>
+                                <div class="data-value">
+                                    <a href="{{ URL::asset('/assets/img/file_pdf/' . $data[0]->unit2) }}"
+                                        target="_blank">ดูไฟล์
+                                        PDF</a>&nbsp; &nbsp;&nbsp;
+                                    <a href="{{ URL::asset('/assets/img/file_pdf/' . $data[0]->unit2) }}" target="_blank"
+                                        download>ดาวน์โหลดไฟล์ PDF</a>
+                                </div>
+                            </div>
+                            <div class="data-row">
+                                <div class="data-label">บทที่3:</div>
+                                <div class="data-value">
+                                    <a href="{{ URL::asset('/assets/img/file_pdf/' . $data[0]->unit3) }}"
+                                        target="_blank">ดูไฟล์
+                                        PDF</a>&nbsp; &nbsp;&nbsp;
+                                    <a href="{{ URL::asset('/assets/img/file_pdf/' . $data[0]->unit3) }}" target="_blank"
+                                        download>ดาวน์โหลดไฟล์ PDF</a>
+                                </div>
+                            </div>
+                            <div class="data-row">
+                                <div class="data-label">บทที่4:</div>
+                                <div class="data-value">
+                                    <a href="{{ URL::asset('/assets/img/file_pdf/' . $data[0]->unit4) }}"
+                                        target="_blank">ดูไฟล์
+                                        PDF</a>&nbsp; &nbsp;&nbsp;
+                                    <a href="{{ URL::asset('/assets/img/file_pdf/' . $data[0]->unit4) }}" target="_blank"
+                                        download>ดาวน์โหลดไฟล์ PDF</a>
+                                </div>
+                            </div>
+                            <div class="data-row">
+                                <div class="data-label">บทที่5:</div>
+                                <div class="data-value">
+                                    <a href="{{ URL::asset('/assets/img/file_pdf/' . $data[0]->unit5) }}"
+                                        target="_blank">ดูไฟล์
+                                        PDF</a>&nbsp; &nbsp;&nbsp;
+                                    <a href="{{ URL::asset('/assets/img/file_pdf/' . $data[0]->unit5) }}" target="_blank"
+                                        download>ดาวน์โหลดไฟล์ PDF</a>
+                                </div>
+                            </div>
+                            <div class="data-row">
+                                <div class="data-label">บทที่6:</div>
+                                <div class="data-value">
+                                    <a href="{{ URL::asset('/assets/img/file_pdf/' . $data[0]->unit6) }}"
+                                        target="_blank">ดูไฟล์
+                                        PDF</a>&nbsp; &nbsp;&nbsp;
+                                    <a href="{{ URL::asset('/assets/img/file_pdf/' . $data[0]->unit6) }}" target="_blank"
+                                        download>ดาวน์โหลดไฟล์ PDF</a>
+                                </div>
+                            </div>
+                            <div class="data-row">
+                                <div class="data-label">ทั้งเล่ม:</div>
+                                <div class="data-value">
+                                    <a href="{{ URL::asset('/assets/img/file_pdf/' . $data[0]->project_all) }}"
+                                        target="_blank">ดูไฟล์
+                                        PDF</a>&nbsp; &nbsp;&nbsp;
+                                    <a href="{{ URL::asset('/assets/img/file_pdf/' . $data[0]->project_all) }}"
+                                        target="_blank" download>ดาวน์โหลดไฟล์ PDF</a>
+                                </div>
+                            </div>
+
                         </div>
-                        <div class="card-footer text-right">
-                            <a href="{{ url('/edit-profile', $user->id) }}" class="btn btn-primary">
+
+                        {{--  <div class="card-footer text-right">
+                            <a href="{{ url('/edit-profile', $data->id) }}" class="btn btn-primary">
                                 แก้ไข
                             </a>
                         </div> --}}
