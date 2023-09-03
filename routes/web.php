@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PerformanceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::get('/edit-profile/{id}', [ProfileController::class, 'edit'])->name('edit-profile');
 Route::put('/update-profile/{id}', [ProfileController::class, 'update'])->name('update-profile');
+Route::get('/create-performance', [PerformanceController::class, 'create'])->name('create-performance');
+Route::post('/new-performance', [PerformanceController::class, 'store'])->name('new-performance');

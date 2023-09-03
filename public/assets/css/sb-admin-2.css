@@ -82,6 +82,17 @@ body {
   outline: 0 !important;
 }
 
+@media only screen and (max-width: 576px) {
+  .icon-logo {
+    margin-left: 8px;
+  }
+
+  .selected-mage {
+    margin-left: 0 !important;
+  }
+}
+
+
 hr {
   box-sizing: content-box;
   height: 0;
@@ -180,7 +191,7 @@ a {
 
 a:hover {
   color: #224abe;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 a:not([href]):not([class]) {
@@ -11656,7 +11667,7 @@ a:focus {
   text-decoration: none;
   font-size: 1rem;
   font-weight: 800;
-  padding: 1.5rem 1rem;
+  padding: 1rem 1rem;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.05rem;
@@ -11672,6 +11683,7 @@ a:focus {
 
 .sidebar .sidebar-brand .sidebar-brand-text {
   display: none;
+  margin-left: -8px;
 }
 
 .sidebar hr.sidebar-divider {
@@ -12631,6 +12643,15 @@ body.sidebar-toggled footer.sticky-footer {
 .icon-logo {
   width: 100%;
   height: 100%;
-  max-width: 20px;
-  max-height: 20px;
+  max-width: 150px;
+  max-height: 150px;
+}
+
+.selected-mage {
+  align-items: center;
+  max-width: 250px;
+  width: 100%;
+  height: 150px;
+  margin-left: 30%;
+  margin-bottom: 32px;
 }

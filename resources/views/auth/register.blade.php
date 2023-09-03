@@ -33,7 +33,7 @@
                                     class="col-md-4 col-form-label text-md-end">{{ __('เลขบัตรประชาชน') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="password" type="text"
+                                    <input id="password" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
                                         value="{{ old('password') }}" required autocomplete="password">
 

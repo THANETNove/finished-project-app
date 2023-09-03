@@ -2,12 +2,12 @@
  <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
      <!-- Sidebar - Brand -->
-     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-         {{--   <div class="sidebar-brand-icon">
-             <i class="fa-solid fa-house  icon-sb"></i>
-         </div> --}}
-         {{--  <img class="icon-logo" src="{{ URL::asset('/assets/img/logo_nsru_brand.png') }}"> --}}
-         <div class="sidebar-brand-text mx-3">ระบบผลงานนักศึกษา</div>
+     <a class="sidebar-brand d-flex " href="index.html">
+         <div class="sidebar-brand-icon">
+             <img class="icon-logo" src="{{ URL::asset('/assets/img/logo_nsru_brand.png') }}">
+         </div>
+
+         <div class="sidebar-brand-text">ระบบผลงานนักศึกษา</div>
      </a>
 
      <!-- Divider -->
