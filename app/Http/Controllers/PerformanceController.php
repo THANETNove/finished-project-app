@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Performance;
@@ -15,7 +16,10 @@ class PerformanceController extends Controller
      */
     public function index()
     {
-        //
+       /*  $data_performances = DB::table('performances')
+            ->where('id_user', Auth::user()->id)
+            ->get();
+        return view('home', compact('data_performances')); */
     }
 
     /**

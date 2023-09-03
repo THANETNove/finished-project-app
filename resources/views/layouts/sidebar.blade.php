@@ -2,7 +2,7 @@
  <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
      <!-- Sidebar - Brand -->
-     <a class="sidebar-brand d-flex " href="index.html">
+     <a class="sidebar-brand d-flex " href="{{ url('/home') }}">
          <div class="sidebar-brand-icon">
              <img class="icon-logo" src="{{ URL::asset('/assets/img/logo_nsru_brand.png') }}">
          </div>
