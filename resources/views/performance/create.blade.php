@@ -20,7 +20,7 @@
                                     <div class="col-md-8">
                                         <input id="image" type="file"
                                             class="form-control @error('image') is-invalid @enderror" name="image"
-                                            value="{{ old('image') }}" autocomplete="image" autofocus>
+                                            value="{{ old('image') }}" autocomplete="image" required autofocus>
 
                                         @error('image')
                                             <span class="invalid-feedback" role="alert">
@@ -38,7 +38,7 @@
                                     <div class="col-md-8">
                                         <input id="std_class" type="text"
                                             class="form-control @error('std_class') is-invalid @enderror" name="std_class"
-                                            value="{{ old('std_class') }}" autocomplete="std_class">
+                                            value="{{ old('std_class') }}" required autocomplete="std_class">
 
                                         @error('std_class')
                                             <span class="invalid-feedback" role="alert">
@@ -54,7 +54,7 @@
                                     <div class="col-md-8">
                                         <input id="project_name" type="text"
                                             class="form-control @error('project_name') is-invalid @enderror"
-                                            name="project_name" autocomplete="project_name">
+                                            name="project_name" required autocomplete="project_name">
                                         @error('project_name')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -69,7 +69,7 @@
                                     <div class="col-md-8">
 
                                         <textarea class="form-control @error('project_into') is-invalid @enderror" name="project_into"
-                                            autocomplete="project_into" rows="3"></textarea>
+                                            autocomplete="project_into" required rows="3"></textarea>
 
 
                                         @error('project_into')
@@ -86,7 +86,7 @@
                                     <div class="col-md-8">
                                         <input id="unit1" type="file"
                                             class="form-control @error('unit1') is-invalid @enderror" name="unit1"
-                                            autocomplete="unit1">
+                                            required autocomplete="unit1">
 
                                         @error('unit1')
                                             <span class="invalid-feedback" role="alert">
@@ -101,7 +101,7 @@
                                     <div class="col-md-8">
                                         <input id="unit2" type="file"
                                             class="form-control @error('unit2') is-invalid @enderror" name="unit2"
-                                            autocomplete="unit2">
+                                            required autocomplete="unit2">
 
                                         @error('unit2')
                                             <span class="invalid-feedback" role="alert">
@@ -116,7 +116,7 @@
                                     <div class="col-md-8">
                                         <input id="unit3" type="file"
                                             class="form-control @error('unit3') is-invalid @enderror" name="unit3"
-                                            autocomplete="unit3">
+                                            required autocomplete="unit3">
 
                                         @error('unit3')
                                             <span class="invalid-feedback" role="alert">
@@ -131,7 +131,7 @@
                                     <div class="col-md-8">
                                         <input id="unit4" type="file"
                                             class="form-control @error('unit4') is-invalid @enderror" name="unit4"
-                                            autocomplete="unit4">
+                                            required autocomplete="unit4">
 
                                         @error('unit4')
                                             <span class="invalid-feedback" role="alert">
@@ -146,7 +146,7 @@
                                     <div class="col-md-8">
                                         <input id="unit5" type="file"
                                             class="form-control @error('unit5') is-invalid @enderror" name="unit5"
-                                            autocomplete="unit5">
+                                            required autocomplete="unit5">
 
                                         @error('unit5')
                                             <span class="invalid-feedback" role="alert">
@@ -161,7 +161,7 @@
                                     <div class="col-md-8">
                                         <input id="unit6" type="file"
                                             class="form-control @error('unit6') is-invalid @enderror" name="unit6"
-                                            autocomplete="unit6">
+                                            required autocomplete="unit6">
 
                                         @error('unit6')
                                             <span class="invalid-feedback" role="alert">
@@ -175,7 +175,7 @@
                                         class="col-md-4 col-form-label text-md-end">{{ __('ทั้งเล่ม') }}</label>
                                     <div class="col-md-8">
                                         <input id="project_all" type="file"
-                                            class="form-control @error('project_all') is-invalid @enderror"
+                                            class="form-control @error('project_all') is-invalid @enderror" required
                                             name="project_all" autocomplete="project_all">
 
                                         @error('project_all')

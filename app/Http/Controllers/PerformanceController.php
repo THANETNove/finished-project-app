@@ -31,6 +31,16 @@ class PerformanceController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'image' => ['required', 'image', 'mimes:jpg,png,jpeg,webp'],
+            'unit1' => ['required', 'file', 'mimes:pdf'],
+            'unit2' => ['required', 'file', 'mimes:pdf'],
+            'unit3' => ['required', 'file', 'mimes:pdf'],
+            'unit4' => ['required', 'file', 'mimes:pdf'],
+            'unit5' => ['required', 'file', 'mimes:pdf'],
+            'unit6' => ['required', 'file', 'mimes:pdf'],
+            'project_all' => ['required', 'file', 'mimes:pdf'],
+        ]);
 
         $dateText = Str::random(6);
         // image
