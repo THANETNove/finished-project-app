@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PerformanceController;
@@ -17,8 +19,28 @@ use App\Http\Controllers\PerformanceController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    $data = DB::table('performances')
+        ->select('id', 'image', 'project_name', 'project_into')
+        ->get();
+    return view('welcome', ['data' => $data]);
 });
+Route::get('/welcome-view/{id}', function ($id) {
+    $data = DB::table('performances')
+        ->where('id', $id)
+        ->get();
+
+    return view('welcome_view', ['data' => $data]);
+});
+Route::post('/search-name', function (Request $request) {
+
+
+    $data = DB::table('performances')
+        ->where('project_name', 'like', "$request->search%")
+        ->get();
+
+    return view('welcome', ['data' => $data]);
+})->name('search-name');
 
 Auth::routes();
 
