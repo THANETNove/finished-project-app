@@ -16,7 +16,7 @@ class PerformanceController extends Controller
      */
     public function index()
     {
-       /*  $data_performances = DB::table('performances')
+        /*  $data_performances = DB::table('performances')
             ->where('id_user', Auth::user()->id)
             ->get();
         return view('home', compact('data_performances')); */
@@ -37,6 +37,7 @@ class PerformanceController extends Controller
     {
         $validated = $request->validate([
             'image' => ['required', 'image', 'mimes:jpg,png,jpeg,webp'],
+            'std_class' => ['required', 'numeric'],
             'unit1' => ['required', 'file', 'mimes:pdf'],
             'unit2' => ['required', 'file', 'mimes:pdf'],
             'unit3' => ['required', 'file', 'mimes:pdf'],
