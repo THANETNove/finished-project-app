@@ -36,30 +36,24 @@
                                         class="col-md-2 col-form-label text-md-end">{{ __('ระดับชั้น') }}</label>
 
                                     <div class="col-md-10">
-                                        <input id="std_class" type=""
-                                            class="form-control @error('std_class') is-invalid @enderror" name="std_class"
-                                            value="{{ old('std_class') }}" required autocomplete="std_class">
-
-                                        @error('std_class')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
+                                        <select class="form-control" name="std_class" aria-label="Default select example">
+                                            <option selected disabled>เลือก ระดับชั้น</option>
+                                            @foreach ($data_class as $_classr)
+                                                <option value={{ $_classr->id }}>{{ $_classr->name }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <label for="std_major"
                                         class="col-md-2 col-form-label text-md-end">{{ __('สาขาวิชา') }}</label>
                                     <div class="col-md-10">
-                                        <input id="std_major" type="text"
-                                            class="form-control @error('std_major') is-invalid @enderror" name="std_major"
-                                            required autocomplete="std_major">
-
-                                        @error('std_major')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
+                                        <select class="form-control" name="std_major" aria-label="Default select example">
+                                            <option selected disabled>เลือก สาขาวิชา</option>
+                                            @foreach ($data_major as $_major)
+                                                <option value={{ $_major->id }}>{{ $_major->name }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -71,6 +65,23 @@
                                             name="std_typesubject" required autocomplete="std_typesubject">
 
                                         @error('std_typesubject')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="term"
+                                        class="col-md-2 col-form-label text-md-end">{{ __('ภาคเรียน') }}</label>
+                                    <div class="col-md-10">
+                                        <select class="form-control" name="term" aria-label="Default select example">
+                                            <option selected disabled>เลือก ภาคเรียน</option>
+                                            @foreach ($data_term as $_term)
+                                                <option value={{ $_term->id }}>{{ $_term->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('term')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
@@ -101,6 +112,22 @@
                                             class="form-control @error('project_name') is-invalid @enderror"
                                             name="project_name" required autocomplete="project_name">
                                         @error('project_name')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="project_name"
+                                        class="col-md-2 col-form-label text-md-end">{{ __('คำสำคัญ') }}</label>
+                                    <div class="col-md-10">
+                                        {{--  <input id="project_name" type="text"
+                                            class="form-control @error('project_name') is-invalid @enderror"
+                                            name="project_name" required autocomplete="keyword_name"> --}}
+                                        <textarea class="form-control @error('keyword_name') is-invalid @enderror" name="keyword_name"
+                                            autocomplete="keyword_name" required rows="3"></textarea>
+                                        @error('keyword_name')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
@@ -224,6 +251,118 @@
                                             name="project_all" autocomplete="project_all">
 
                                         @error('project_all')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="person_name_1"
+                                        class="col-md-2 col-form-label text-md-end">{{ __('ผู้จัดทำที่ 1') }}</label>
+                                    <div class="col-md-10">
+                                        <input id="person_name_1" type="text"
+                                            class="form-control @error('person_name_1') is-invalid @enderror"
+                                            name="person_name_1" required autocomplete="person_name_1">
+                                        @error('person_name_1')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="person_name_2"
+                                        class="col-md-2 col-form-label text-md-end">{{ __('ผู้จัดทำที่ 2') }}</label>
+                                    <div class="col-md-10">
+                                        <input id="person_name_2" type="text"
+                                            class="form-control @error('person_name_2') is-invalid @enderror"
+                                            name="person_name_2" autocomplete="person_name_2">
+                                        @error('person_name_2')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="person_name_3"
+                                        class="col-md-2 col-form-label text-md-end">{{ __('ผู้จัดทำที่ 3') }}</label>
+                                    <div class="col-md-10">
+                                        <input id="person_name_3" type="text"
+                                            class="form-control @error('person_name_3') is-invalid @enderror"
+                                            name="person_name_3" autocomplete="person_name_3">
+                                        @error('person_name_3')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="person_name_4"
+                                        class="col-md-2 col-form-label text-md-end">{{ __('ผู้จัดทำที่ 4') }}</label>
+                                    <div class="col-md-10">
+                                        <input id="person_name_4" type="text"
+                                            class="form-control @error('person_name_4') is-invalid @enderror"
+                                            name="person_name_4" autocomplete="person_name_4">
+                                        @error('person_name_4')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="person_name_5"
+                                        class="col-md-2 col-form-label text-md-end">{{ __('ผู้จัดทำที่ 5') }}</label>
+                                    <div class="col-md-10">
+                                        <input id="person_name_5" type="text"
+                                            class="form-control @error('person_name_5') is-invalid @enderror"
+                                            name="person_name_5" autocomplete="person_name_5">
+                                        @error('person_name_5')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="person_name_6"
+                                        class="col-md-2 col-form-label text-md-end">{{ __('ผู้จัดทำที่ 6') }}</label>
+                                    <div class="col-md-10">
+                                        <input id="person_name_6" type="text"
+                                            class="form-control @error('person_name_6') is-invalid @enderror"
+                                            name="person_name_6" autocomplete="person_name_6">
+                                        @error('person_name_6')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="person_name_7"
+                                        class="col-md-2 col-form-label text-md-end">{{ __('ผู้จัดทำที่ 7') }}</label>
+                                    <div class="col-md-10">
+                                        <input id="person_name_7" type="text"
+                                            class="form-control @error('person_name_7') is-invalid @enderror"
+                                            name="person_name_7" autocomplete="person_name_7">
+                                        @error('person_name_7')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="person_name_8"
+                                        class="col-md-2 col-form-label text-md-end">{{ __('ผู้จัดทำที่ 8') }}</label>
+                                    <div class="col-md-10">
+                                        <input id="person_name_8" type="text"
+                                            class="form-control @error('person_name_8') is-invalid @enderror"
+                                            name="person_name_8" autocomplete="person_name_8">
+                                        @error('person_name_8')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
