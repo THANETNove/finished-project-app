@@ -21,14 +21,32 @@ use App\Http\Controllers\PerformanceController;
 Route::get('/', function () {
 
     $data = DB::table('performances')
-        ->select('id', 'image', 'project_name', 'project_into')
+        ->leftJoin('class_type', 'performances.std_class', '=', 'class_type.id')
+        ->leftJoin('term_type', 'performances.term', '=', 'term_type.id')
+        ->leftJoin('major_type', 'performances.std_major', '=', 'major_type.id')
+        ->select(
+            'performances.*',
+            'class_type.name AS class_name',
+            'term_type.name AS term_name',
+            'major_type.name AS major_name'
+        )
+        /* ->select('id', 'image', 'project_name', 'project_into') */
         ->get();
     return view('welcome', ['data' => $data]);
 });
 
 Route::get('/welcome-view/{id}', function ($id) {
     $data = DB::table('performances')
-        ->where('id', $id)
+        ->leftJoin('class_type', 'performances.std_class', '=', 'class_type.id')
+        ->leftJoin('term_type', 'performances.term', '=', 'term_type.id')
+        ->leftJoin('major_type', 'performances.std_major', '=', 'major_type.id')
+        ->select(
+            'performances.*',
+            'class_type.name AS class_name',
+            'term_type.name AS term_name',
+            'major_type.name AS major_name'
+        )
+        ->where('performances.id', $id)
         ->get();
 
     return view('welcome_view', ['data' => $data]);

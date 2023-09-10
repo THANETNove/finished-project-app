@@ -32,11 +32,18 @@
                     <div class="card">
                         <a class="edit-performance" href="{{ url('/edit-performance', $data[0]->id) }}">เเก้ไข</a>
                         <div class="data-grid">
-                            <div class="data-row">
+                            {{-- <div class="data-row">
                                 <div class="data-label">รูปภาพ:</div>
                                 <div class="data-value">
                                     <img src="{{ URL::asset('/assets/img/image_performance/' . $data[0]->image) }}"
                                         alt="...">
+                                </div>
+                            </div> --}}
+                            <div class="row">
+                                <div class="data-label col-sm-12 col-md-3">รูปภาพ:</div>
+                                <div class="data-value col-sm-12 col-md-9">
+                                    <img src="{{ URL::asset('/assets/img/image_performance/' . $data[0]->image) }}"
+                                        class="performance-image" alt="...">
                                 </div>
                             </div>
                             <br>
