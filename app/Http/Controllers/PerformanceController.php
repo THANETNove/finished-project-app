@@ -41,13 +41,13 @@ class PerformanceController extends Controller
             'std_major' => ['required', 'string', 'max:255'],
             'std_typesubject' => ['required', 'string', 'max:255'],
             'std_year' => ['required', 'string', 'max:255'],
-            'unit1' => ['required', 'file', 'mimes:pdf'],
+            /*  'unit1' => ['required', 'file', 'mimes:pdf'],
             'unit2' => ['required', 'file', 'mimes:pdf'],
             'unit3' => ['required', 'file', 'mimes:pdf'],
             'unit4' => ['required', 'file', 'mimes:pdf'],
             'unit5' => ['required', 'file', 'mimes:pdf'],
             'unit6' => ['required', 'file', 'mimes:pdf'],
-            'project_all' => ['required', 'file', 'mimes:pdf'],
+            'project_all' => ['required', 'file', 'mimes:pdf'], */
         ]);
 
         $dateText = Str::random(6);
@@ -109,11 +109,11 @@ class PerformanceController extends Controller
         $member->id_user = Auth::user()->id;
         $member->image =  $imageName;
         $member->std_class = $request['std_class'];
-        $member->project_name = $request['project_name'];
-        $member->project_into = $request['project_into'];
         $member->std_major = $request['std_major'];
         $member->std_typesubject = $request['std_typesubject'];
         $member->std_year = $request['std_year'];
+        $member->project_name = $request['project_name'];
+        $member->project_into = $request['project_into'];
         $member->unit1 = $unit1_name;
         $member->unit2 = $unit2_name;
         $member->unit3 = $unit3_name;

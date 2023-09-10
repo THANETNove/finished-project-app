@@ -16,18 +16,18 @@ return new class extends Migration
             $table->string('id_user')->nullable();
             $table->string('image')->nullable();
             $table->string('std_class')->nullable();
-            $table->string('project_name')->nullable();
-            $table->text('project_into')->nullable();
             $table->string('std_major')->nullable();
             $table->string('std_typesubject')->nullable();
             $table->string('std_year')->nullable();
+            $table->string('project_name')->nullable();
+            $table->text('project_into')->nullable();
             $table->string('unit1')->nullable();
             $table->string('unit2')->nullable();
             $table->string('unit3')->nullable();
             $table->string('unit4')->nullable();
             $table->string('unit5')->nullable();
             $table->string('unit6')->nullable();
-            $table->string('project_all_name')->nullable();
+            $table->string('project_all')->nullable();
             $table->timestamps();
         });
     }
