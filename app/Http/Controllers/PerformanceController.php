@@ -161,7 +161,14 @@ class PerformanceController extends Controller
     public function edit(string $id)
     {
         $data = Performance::find($id);
-        return view('performance.edit', compact('data'));
+        $data_class = DB::table('class_type')
+            ->get();
+        $data_major = DB::table('major_type')
+            ->get();
+        $data_term = DB::table('term_type')
+            ->get();
+        return view('performance.edit', ["data" => $data, "data_class" => $data_class, "data_major" => $data_major, "data_term" => $data_term]);
+        /*         return view('performance.edit', compact('data')); */
     }
 
     /**
@@ -171,9 +178,10 @@ class PerformanceController extends Controller
     {
         $validated = $request->validate([
             'image' => ['image', 'mimes:jpg,png,jpeg,webp'],
-            'std_class' => ['numeric'],
+            'std_class' => ['required', 'string', 'max:255'],
             'std_major' => ['required', 'string', 'max:255'],
             'std_typesubject' => ['required', 'string', 'max:255'],
+            'term' => ['required', 'string', 'max:255'],
             'std_year' => ['required', 'string', 'max:255'],
             'unit1' => ['file', 'mimes:pdf'],
             'unit2' => ['file', 'mimes:pdf'],
@@ -182,6 +190,7 @@ class PerformanceController extends Controller
             'unit5' => ['file', 'mimes:pdf'],
             'unit6' => ['file', 'mimes:pdf'],
             'project_all' => ['file', 'mimes:pdf'],
+            'person_name_1' => ['required', 'string', 'max:255'],
         ]);
 
         $dateText = Str::random(6);
@@ -273,9 +282,19 @@ class PerformanceController extends Controller
         $member->std_class = $request['std_class'];
         $member->std_major = $request['std_major'];
         $member->std_typesubject = $request['std_typesubject'];
+        $member->term = $request['term'];
         $member->std_year = $request['std_year'];
         $member->project_name = $request['project_name'];
+        $member->keyword_name = $request['keyword_name'];
         $member->project_into = $request['project_into'];
+        $member->person_name_1 = $request['person_name_1'];
+        $member->person_name_2 = $request['person_name_2'];
+        $member->person_name_3 = $request['person_name_3'];
+        $member->person_name_4 = $request['person_name_4'];
+        $member->person_name_5 = $request['person_name_5'];
+        $member->person_name_6 = $request['person_name_6'];
+        $member->person_name_7 = $request['person_name_7'];
+        $member->person_name_8 = $request['person_name_8'];
 
         $member->save();
         return redirect('home')->with('message', "เเก้ไขสำเร็จ");

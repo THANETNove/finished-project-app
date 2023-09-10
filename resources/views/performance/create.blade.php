@@ -38,8 +38,8 @@
                                     <div class="col-md-10">
                                         <select class="form-control" name="std_class" aria-label="Default select example">
                                             <option selected disabled>เลือก ระดับชั้น</option>
-                                            @foreach ($data_class as $_classr)
-                                                <option value={{ $_classr->id }}>{{ $_classr->name }}</option>
+                                            @foreach ($data_class as $_class)
+                                                <option value={{ $_class->id }}>{{ $_class->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -122,9 +122,6 @@
                                     <label for="project_name"
                                         class="col-md-2 col-form-label text-md-end">{{ __('คำสำคัญ') }}</label>
                                     <div class="col-md-10">
-                                        {{--  <input id="project_name" type="text"
-                                            class="form-control @error('project_name') is-invalid @enderror"
-                                            name="project_name" required autocomplete="keyword_name"> --}}
                                         <textarea class="form-control @error('keyword_name') is-invalid @enderror" name="keyword_name"
                                             autocomplete="keyword_name" required rows="3"></textarea>
                                         @error('keyword_name')
