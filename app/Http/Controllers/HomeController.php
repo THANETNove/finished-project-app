@@ -30,11 +30,13 @@ class HomeController extends Controller
             ->leftJoin('class_type', 'performances.std_class', '=', 'class_type.id')
             ->leftJoin('term_type', 'performances.term', '=', 'term_type.id')
             ->leftJoin('major_type', 'performances.std_major', '=', 'major_type.id')
+            ->leftJoin('branch_type', 'performances.std_typesubject', '=', 'branch_type.id')
             ->select(
                 'performances.*',
                 'class_type.name AS class_name',
                 'term_type.name AS term_name',
-                'major_type.name AS major_name'
+                'major_type.name AS major_name',
+                'branch_type.name AS branch_name'
             )
             ->get();
 

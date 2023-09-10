@@ -35,7 +35,7 @@
                                     </div>
                                     <div class="data-row">
                                         <div class="data-label">ประเภทวิชา:</div>
-                                        <div class="data-value">{{ $data[0]->std_typesubject }}</div>
+                                        <div class="data-value">{{ $data[0]->branch_name }}</div>
                                     </div>
                                     <div class="data-row">
                                         <div class="data-label">ภาคเรียน:</div>

@@ -33,7 +33,9 @@ class PerformanceController extends Controller
             ->get();
         $data_term = DB::table('term_type')
             ->get();
-        return view('performance.create', ["data_class" => $data_class, "data_major" => $data_major, "data_term" => $data_term]);
+        $data_branch = DB::table('branch_type')
+            ->get();
+        return view('performance.create', ["data_class" => $data_class, "data_major" => $data_major, "data_term" => $data_term, "data_branch" => $data_branch]);
     }
 
     /**
@@ -167,7 +169,10 @@ class PerformanceController extends Controller
             ->get();
         $data_term = DB::table('term_type')
             ->get();
-        return view('performance.edit', ["data" => $data, "data_class" => $data_class, "data_major" => $data_major, "data_term" => $data_term]);
+
+        $data_branch = DB::table('branch_type')
+            ->get();
+        return view('performance.edit', ["data" => $data, "data_class" => $data_class, "data_major" => $data_major, "data_term" => $data_term, "data_branch" => $data_branch]);
         /*         return view('performance.edit', compact('data')); */
     }
 

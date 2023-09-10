@@ -90,10 +90,23 @@
                                     <label for="std_typesubject"
                                         class="col-md-2 col-form-label text-md-end">{{ __('ประเภทวิชา') }}</label>
                                     <div class="col-md-10">
-                                        <input id="std_typesubject" type="text"
+                                        {{--  <input id="std_typesubject" type="text"
                                             class="form-control @error('std_typesubject') is-invalid @enderror"
                                             name="std_typesubject" value="{{ $data->std_typesubject }}"
-                                            autocomplete="std_typesubject">
+                                            autocomplete="std_typesubject"> --}}
+                                        <select class="form-control" name="std_typesubject"
+                                            aria-label="Default select example">
+                                            <option selected disabled>เลือก ประเภทวิชา</option>
+                                            @foreach ($data_branch as $_branch)
+                                                @if ($_branch->id == $data->std_typesubject)
+                                                    <option value={{ $data->std_typesubject }} selected>
+                                                        {{ $_branch->name }}
+                                                    </option>
+                                                @else
+                                                    <option value={{ $_branch->id }}>{{ $_branch->name }}</option>
+                                                @endif
+                                            @endforeach
+                                        </select>
 
                                         @error('std_typesubject')
                                             <span class="invalid-feedback" role="alert">
