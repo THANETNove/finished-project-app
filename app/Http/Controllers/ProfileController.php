@@ -59,9 +59,6 @@ class ProfileController extends Controller
         $validated = $request->validate([
             'std_fristename' => ['required', 'string', 'max:255'],
             'std_lastna' => ['required', 'string', 'max:255'],
-            'std_major' => ['required', 'string', 'max:255'],
-            'std_typesubject' => ['required', 'string', 'max:255'],
-            'std_year' => ['required', 'string', 'max:255'],
             'college' => ['required', 'string', 'max:255'],
         ]);
 
@@ -69,9 +66,6 @@ class ProfileController extends Controller
             ->update([
                 'std_fristename' => $request['std_fristename'],
                 'std_lastna' => $request['std_lastna'],
-                'std_major' => $request['std_major'],
-                'std_typesubject' => $request['std_typesubject'],
-                'std_year' => $request['std_year'],
                 'college' => $request['college']
             ]);
 

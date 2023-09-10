@@ -26,18 +26,6 @@
                                                 <td><span class="span-l">{{ $user->std_id }}</span></td>
                                             </tr>
                                             <tr>
-                                                <td>สาขาวิชา:</td>
-                                                <td><span class="span-l">{{ $user->std_major }}</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>ประเภทวิชา:</td>
-                                                <td><span class="span-l">{{ $user->std_typesubject }}</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>ปีการศึกษา:</td>
-                                                <td><span class="span-l">{{ $user->std_year }}</span></td>
-                                            </tr>
-                                            <tr>
                                                 <td>วิทยาลัย:</td>
                                                 <td><span class="span-l">{{ $user->college }}</span></td>
                                             </tr>

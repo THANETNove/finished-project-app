@@ -45,6 +45,18 @@
                                 <div class="data-value">{{ $data[0]->std_class }}</div>
                             </div>
                             <div class="data-row">
+                                <div class="data-label">สาขาวิชา:</div>
+                                <div class="data-value">{{ $data[0]->std_major }}</div>
+                            </div>
+                            <div class="data-row">
+                                <div class="data-label">ประเภทวิชา:</div>
+                                <div class="data-value">{{ $data[0]->std_typesubject }}</div>
+                            </div>
+                            <div class="data-row">
+                                <div class="data-label">ปีการศึกษา:</div>
+                                <div class="data-value">{{ $data[0]->std_year }}</div>
+                            </div>
+                            <div class="data-row">
                                 <div class="data-label">ชื่อโครงการ:</div>
                                 <div class="data-value">{{ $data[0]->project_name }}</div>
                             </div>
