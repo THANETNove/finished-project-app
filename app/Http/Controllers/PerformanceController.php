@@ -38,6 +38,9 @@ class PerformanceController extends Controller
         $validated = $request->validate([
             'image' => ['required', 'image', 'mimes:jpg,png,jpeg,webp'],
             'std_class' => ['required', 'numeric'],
+            'std_major' => ['required', 'string', 'max:255'],
+            'std_typesubject' => ['required', 'string', 'max:255'],
+            'std_year' => ['required', 'string', 'max:255'],
             'unit1' => ['required', 'file', 'mimes:pdf'],
             'unit2' => ['required', 'file', 'mimes:pdf'],
             'unit3' => ['required', 'file', 'mimes:pdf'],
@@ -108,6 +111,9 @@ class PerformanceController extends Controller
         $member->std_class = $request['std_class'];
         $member->project_name = $request['project_name'];
         $member->project_into = $request['project_into'];
+        $member->std_major = $request['std_major'];
+        $member->std_typesubject = $request['std_typesubject'];
+        $member->std_year = $request['std_year'];
         $member->unit1 = $unit1_name;
         $member->unit2 = $unit2_name;
         $member->unit3 = $unit3_name;

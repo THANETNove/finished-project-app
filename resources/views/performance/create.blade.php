@@ -47,6 +47,51 @@
                                         @enderror
                                     </div>
                                 </div>
+                                <div class="row mb-3">
+                                    <label for="std_major"
+                                        class="col-md-4 col-form-label text-md-end">{{ __('สาขาวิชา') }}</label>
+                                    <div class="col-md-6">
+                                        <input id="std_major" type="text"
+                                            class="form-control @error('std_major') is-invalid @enderror" name="std_major"
+                                            required autocomplete="std_major">
+
+                                        @error('std_major')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="std_typesubject"
+                                        class="col-md-4 col-form-label text-md-end">{{ __('ประเภทวิชา') }}</label>
+                                    <div class="col-md-6">
+                                        <input id="std_typesubject" type="text"
+                                            class="form-control @error('std_typesubject') is-invalid @enderror"
+                                            name="std_typesubject" required autocomplete="std_typesubject">
+
+                                        @error('std_typesubject')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="std_year"
+                                        class="col-md-4 col-form-label text-md-end">{{ __('ปีการศึกษา') }}</label>
+                                    <div class="col-md-6">
+                                        <input id="std_year" type="text"
+                                            class="form-control @error('std_year') is-invalid @enderror" name="std_year"
+                                            required autocomplete="std_year">
+
+                                        @error('std_year')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
 
                                 <div class="row mb-3">
                                     <label for="project_name"

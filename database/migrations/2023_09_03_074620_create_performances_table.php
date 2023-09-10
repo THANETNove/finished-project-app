@@ -14,9 +14,13 @@ return new class extends Migration
         Schema::create('performances', function (Blueprint $table) {
             $table->id();
             $table->string('id_user')->nullable();
+            $table->string('image')->nullable();
             $table->string('std_class')->nullable();
             $table->string('project_name')->nullable();
             $table->text('project_into')->nullable();
+            $table->string('std_major')->nullable();
+            $table->string('std_typesubject')->nullable();
+            $table->string('std_year')->nullable();
             $table->string('unit1')->nullable();
             $table->string('unit2')->nullable();
             $table->string('unit3')->nullable();

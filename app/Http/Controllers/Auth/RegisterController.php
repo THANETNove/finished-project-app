@@ -54,9 +54,6 @@ class RegisterController extends Controller
             'password' => ['required', 'numeric'],
             'std_fristename' => ['required', 'string', 'max:255'],
             'std_lastna' => ['required', 'string', 'max:255'],
-            'std_major' => ['required', 'string', 'max:255'],
-            'std_typesubject' => ['required', 'string', 'max:255'],
-            'std_year' => ['required', 'string', 'max:255'],
             'college' => ['required', 'string', 'max:255'],
         ]);
     }
@@ -74,9 +71,6 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'std_fristename' => $data['std_fristename'],
             'std_lastna' => $data['std_lastna'],
-            'std_major' => $data['std_major'],
-            'std_typesubject' => $data['std_typesubject'],
-            'std_year' => $data['std_year'],
             'college' => $data['college'],
         ]);
     }

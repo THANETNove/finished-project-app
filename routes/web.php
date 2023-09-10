@@ -25,6 +25,7 @@ Route::get('/', function () {
         ->get();
     return view('welcome', ['data' => $data]);
 });
+
 Route::get('/welcome-view/{id}', function ($id) {
     $data = DB::table('performances')
         ->where('id', $id)

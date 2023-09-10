@@ -22,9 +22,6 @@ class User extends Authenticatable
         'password',
         'std_fristename',
         'std_lastna',
-        'std_major',
-        'std_typesubject',
-        'std_year',
         'college'
     ];
 

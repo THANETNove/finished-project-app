@@ -17,9 +17,6 @@ return new class extends Migration
             $table->string('password')->nullable();
             $table->string('std_fristename')->nullable();
             $table->string('std_lastna')->nullable();
-            $table->string('std_major')->nullable();
-            $table->string('std_typesubject')->nullable();
-            $table->string('std_year')->nullable();
             $table->string('college')->nullable();
             $table->rememberToken();
             $table->timestamps();
