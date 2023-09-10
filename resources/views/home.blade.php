@@ -42,15 +42,19 @@
                             <br>
                             <div class="data-row">
                                 <div class="data-label">ระดับชั้น:</div>
-                                <div class="data-value">{{ $data[0]->std_class }}</div>
+                                <div class="data-value">{{ $data[0]->class_name }}</div>
                             </div>
                             <div class="data-row">
                                 <div class="data-label">สาขาวิชา:</div>
-                                <div class="data-value">{{ $data[0]->std_major }}</div>
+                                <div class="data-value">{{ $data[0]->major_name }}</div>
                             </div>
                             <div class="data-row">
                                 <div class="data-label">ประเภทวิชา:</div>
                                 <div class="data-value">{{ $data[0]->std_typesubject }}</div>
+                            </div>
+                            <div class="data-row">
+                                <div class="data-label">ภาคเรียน:</div>
+                                <div class="data-value">{{ $data[0]->term_name }}</div>
                             </div>
                             <div class="data-row">
                                 <div class="data-label">ปีการศึกษา:</div>
@@ -59,6 +63,10 @@
                             <div class="data-row">
                                 <div class="data-label">ชื่อโครงการ:</div>
                                 <div class="data-value">{{ $data[0]->project_name }}</div>
+                            </div>
+                            <div class="data-row">
+                                <div class="data-label">คำสำคัญ:</div>
+                                <div class="data-value">{{ $data[0]->keyword_name }}</div>
                             </div>
                             <div class="data-row">
                                 <div class="data-label">บทคัดย่อ:</div>
@@ -135,7 +143,58 @@
                                         target="_blank" download>ดาวน์โหลดไฟล์ PDF</a>
                                 </div>
                             </div>
-
+                            <div class="data-row">
+                                <div class="data-label">ผู้จัดทำที่ 1:</div>
+                                <div class="data-value">{{ $data[0]->person_name_1 }}</div>
+                            </div>
+                            @if (!empty($data[0]->person_name_1))
+                                <div class="data-row">
+                                    <div class="data-label">ผู้จัดทำที่ 1:</div>
+                                    <div class="data-value">{{ $data[0]->person_name_1 }}</div>
+                                </div>
+                            @endif
+                            @if (!empty($data[0]->person_name_2))
+                                <div class="data-row">
+                                    <div class="data-label">ผู้จัดทำที่ 2:</div>
+                                    <div class="data-value">{{ $data[0]->person_name_2 }}</div>
+                                </div>
+                            @endif
+                            @if (!empty($data[0]->person_name_3))
+                                <div class="data-row">
+                                    <div class="data-label">ผู้จัดทำที่ 3:</div>
+                                    <div class="data-value">{{ $data[0]->person_name_3 }}</div>
+                                </div>
+                            @endif
+                            @if (!empty($data[0]->person_name_4))
+                                <div class="data-row">
+                                    <div class="data-label">ผู้จัดทำที่ 4:</div>
+                                    <div class="data-value">{{ $data[0]->person_name_4 }}</div>
+                                </div>
+                            @endif
+                            @if (!empty($data[0]->person_name_5))
+                                <div class="data-row">
+                                    <div class="data-label">ผู้จัดทำที่ 5:</div>
+                                    <div class="data-value">{{ $data[0]->person_name_5 }}</div>
+                                </div>
+                            @endif
+                            @if (!empty($data[0]->person_name_6))
+                                <div class="data-row">
+                                    <div class="data-label">ผู้จัดทำที่ 6:</div>
+                                    <div class="data-value">{{ $data[0]->person_name_6 }}</div>
+                                </div>
+                            @endif
+                            @if (!empty($data[0]->person_name_7))
+                                <div class="data-row">
+                                    <div class="data-label">ผู้จัดทำที่ 7:</div>
+                                    <div class="data-value">{{ $data[0]->person_name_7 }}</div>
+                                </div>
+                            @endif
+                            @if (!empty($data[0]->person_name_8))
+                                <div class="data-row">
+                                    <div class="data-label">ผู้จัดทำที่ 8:</div>
+                                    <div class="data-value">{{ $data[0]->person_name_8 }}</div>
+                                </div>
+                            @endif
                         </div>
 
                         {{--  <div class="card-footer text-right">
